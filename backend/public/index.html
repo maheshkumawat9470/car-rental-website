@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentRide - Premium Car & Bike Rentals</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="glass-nav">
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <i data-lucide="car" class="logo-icon"></i>
+        <span>Rent<span class="text-primary">Ride</span></span>
+      </a>
+      
+      <div class="nav-links">
+        <a href="#cars" class="nav-link">Cars</a>
+        <a href="#bikes" class="nav-link">Bikes</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-actions" id="authSection">
+        <a href="#" class="btn-text" id="loginBtn">Log in</a>
+        <a href="#" class="btn-primary" id="signupBtn">Sign up</a>
+      </div>
+      <div class="nav-actions" id="userSection" style="display: none;">
+        <span class="user-greeting" id="userNameGreeting" style="margin-right: 15px; font-weight: 500; color: var(--gray-800);"></span>
+        <a href="#" class="btn-text" id="myBookingsBtn" style="margin-right: 15px;">My Bookings</a>
+        <a href="#" class="btn-text" id="logoutBtn">Log out</a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-bg">
+      <div class="overlay"></div>
+    </div>
+    
+    <div class="hero-content">
+      <h1 class="fade-in-up">Find Your Perfect <br><span class="gradient-text">Ride Today</span></h1>
+      <p class="hero-subtitle fade-in-up delay-1">Experience the freedom of the open road with our premium selection of cars and bikes. Easy booking, affordable rates, zero hassle.</p>
+      
+      <!-- Search Box (Glassmorphism) -->
+      <div class="search-box glass-card fade-in-up delay-2">
+        <div class="search-tabs">
+          <button class="tab-btn active" data-tab="car">Cars</button>
+          <button class="tab-btn" data-tab="bike">Bikes</button>
+        </div>
+        
+        <form id="searchForm" class="search-form">
+          <div class="input-group">
+            <label>Pick-up Location</label>
+            <div class="input-icon">
+              <i data-lucide="map-pin"></i>
+              <input type="text" placeholder="City, Airport, or Address" required>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label>Pick-up Date</label>
+            <div class="input-icon">
+              <i data-lucide="calendar"></i>
+              <input type="date" required>
+            </div>
+          </div>
+          
+          <div class="input-group">
+            <label>Return Date</label>
+            <div class="input-icon">
+              <i data-lucide="calendar"></i>
+              <input type="date" required>
+            </div>
+          </div>
+          
+          <button type="submit" class="btn-search">
+            <i data-lucide="search"></i> Search
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features Section -->
+  <section class="features" id="about">
+    <div class="container text-center">
+      <h2 class="section-title">Why Choose RentRide?</h2>
+      <p class="section-subtitle">We provide the best vehicle rental experience with premium customer service, transparent pricing, and a diverse fleet.</p>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="icon-box icon-blue">
+            <i data-lucide="shield"></i>
+          </div>
+          <h3>Secure & Safe</h3>
+          <p>All our vehicles are regularly sanitized, fully insured, and well-maintained for your absolute safety.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="icon-box icon-emerald">
+            <i data-lucide="zap"></i>
+          </div>
+          <h3>Instant Booking</h3>
+          <p>Book your vehicle in seconds. No complex paperwork, just pure driving pleasure at your fingertips.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="icon-box icon-rose">
+            <i data-lucide="heart"></i>
+          </div>
+          <h3>Premium Support</h3>
+          <p>Our customer support team is available 24/7 to assist you during your journey and ensure peace of mind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Vehicles -->
+  <section class="featured-vehicles" id="cars">
+    <div class="container text-center">
+      <h2 class="section-title">Featured Vehicles</h2>
+      <p class="section-subtitle">Explore some of our most popular and highly-rated vehicles.</p>
+      
+      <!-- Skeleton Loader (Hidden by default) -->
+      <div id="vehicleLoading" class="vehicles-grid">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+
+      <!-- Real Data Container -->
+      <div id="vehiclesContainer" class="vehicles-grid">
+        <!-- Vehicles will be injected here via JS -->
+      </div>
+      
+      <a href="#" class="btn-outline mt-8">View All Inventory <i data-lucide="chevron-right"></i></a>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container text-center">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Got questions? We've got answers to help you get on the road.</p>
+      
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What documents do I need to rent a vehicle?</h3>
+            <i data-lucide="chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>You need a valid driving license, a government-issued ID (like Aadhar or Passport), and a credit/debit card for the security deposit.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Is fuel included in the rental price?</h3>
+            <i data-lucide="chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>No, fuel is not included. You will receive the vehicle with a certain fuel level, and you are expected to return it with the same level.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How does the security deposit work?</h3>
+            <i data-lucide="chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>A flat refundable security deposit of ₹5000 is required at the time of booking. It is refunded within 3-5 business days after you return the vehicle in good condition.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Can I cancel or modify my booking?</h3>
+            <i data-lucide="chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, free cancellation is available up to 24 hours before your pickup time. Modifications depend on vehicle availability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <i data-lucide="car" class="logo-icon"></i>
+            <span>Rent<span class="text-primary">Ride</span></span>
+          </a>
+          <p class="footer-desc">Premium car and bike rental services. Experience the luxury of driving your dream vehicle without the hassle of ownership.</p>
+          <div class="social-links">
+            <a href="#"><i data-lucide="facebook"></i></a>
+            <a href="#"><i data-lucide="twitter"></i></a>
+            <a href="#"><i data-lucide="instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Rent a Car</a></li>
+            <li><a href="#">Rent a Bike</a></li>
+            <li><a href="#">Special Offers</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h3>Contact Info</h3>
+          <ul>
+            <li><i data-lucide="map-pin"></i> 123 Mobility Avenue, Tech Park</li>
+            <li><i data-lucide="phone"></i> +1 (800) 123-4567</li>
+            <li><i data-lucide="mail"></i> support@rentride.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 RentRide. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal-overlay">
+    <div class="modal-content glass-card">
+      <div class="modal-header">
+        <h2>Book Vehicle</h2>
+        <button id="closeModalBtn" class="close-btn"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div id="modalVehicleInfo" class="modal-vehicle-info">
+          <!-- Populated by JS -->
+        </div>
+        <form id="bookingForm" class="booking-form">
+          <input type="hidden" id="bookVehicleId">
+          <input type="hidden" id="bookVehiclePrice">
+          
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="bookName" required>
+          </div>
+          <div class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" id="bookPhone" required>
+          </div>
+          <div class="input-group">
+            <label>Aadhar Number</label>
+            <input type="text" id="bookAadhar" pattern="[0-9]{12}" title="12 Digit Aadhar Number" required>
+          </div>
+          <div class="input-group">
+            <label>Pickup Address</label>
+            <input type="text" id="bookPickupAddress" required>
+          </div>
+          <div class="input-group">
+            <label>Drop Address</label>
+            <input type="text" id="bookDropAddress" required>
+          </div>
+          <div class="input-group">
+            <label>Pickup Date & Time</label>
+            <input type="datetime-local" id="bookPickup" required>
+          </div>
+          <div class="input-group">
+            <label>Return Date & Time</label>
+            <input type="datetime-local" id="bookReturn" required>
+          </div>
+          
+          <div class="price-breakdown">
+            <div class="price-row"><span>Rental Amount:</span> <span id="calcRental">₹0</span></div>
+            <div class="price-row"><span>Security Deposit:</span> <span id="calcDeposit">₹0</span></div>
+            <div class="price-row"><span>GST (18%):</span> <span id="calcGst">₹0</span></div>
+            <div class="price-row total-row"><span>Total Payable:</span> <span id="calcTotal">₹0</span></div>
+          </div>
+          
+          <button type="submit" class="btn-primary w-full mt-4">Confirm & Pay</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Container -->
+  <div id="mobileMenu" class="mobile-menu">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <h2>Menu</h2>
+        <button id="closeMobileBtn" class="close-btn"><i data-lucide="x"></i></button>
+      </div>
+      <a href="#cars" class="mobile-link">Cars</a>
+      <a href="#bikes" class="mobile-link">Bikes</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#faq" class="mobile-link">FAQ</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <div class="mobile-actions mt-8" id="mobileAuthSection">
+        <a href="#" class="btn-text w-full text-center" id="mobileLoginBtn" style="display:block; margin-bottom: 12px;">Log in</a>
+        <a href="#" class="btn-primary w-full text-center" id="mobileSignupBtn" style="display:block;">Sign up</a>
+      </div>
+      <div class="mobile-actions mt-8" id="mobileUserSection" style="display: none;">
+        <div class="user-greeting text-center" id="mobileUserNameGreeting" style="margin-bottom: 12px; font-weight: 500; color: var(--gray-800);"></div>
+        <a href="#" class="btn-text w-full text-center" id="mobileMyBookingsBtn" style="display:block; margin-bottom: 12px;">My Bookings</a>
+        <a href="#" class="btn-text w-full text-center" id="mobileLogoutBtn" style="display:block;">Log out</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Support Button -->
+  <a href="#" class="floating-support" title="Chat with us">
+    <i data-lucide="message-circle"></i>
+  </a>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Booking Confirmed Successfully!</div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal-overlay">
+    <div class="modal-content glass-card" style="max-width: 400px;">
+      <div class="modal-header">
+        <h2>Log in</h2>
+        <button id="closeLoginBtn" class="close-btn"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" class="auth-form">
+          <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" id="loginEmail" required>
+          </div>
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="loginPassword" required>
+          </div>
+          <button type="submit" class="btn-primary w-full mt-4">Log in</button>
+          <p class="text-center mt-4" style="font-size: 0.875rem; color: var(--gray-600);">Don't have an account? <a href="#" id="switchToSignup" class="text-primary" style="font-weight: 500;">Sign up</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign Up Modal -->
+  <div id="signupModal" class="modal-overlay">
+    <div class="modal-content glass-card" style="max-width: 400px;">
+      <div class="modal-header">
+        <h2>Sign up</h2>
+        <button id="closeSignupBtn" class="close-btn"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="signupForm" class="auth-form">
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="signupName" required>
+          </div>
+          <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" id="signupEmail" required>
+          </div>
+          <div class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" id="signupPhone" required>
+          </div>
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="signupPassword" required>
+          </div>
+          <button type="submit" class="btn-primary w-full mt-4">Create Account</button>
+          <p class="text-center mt-4" style="font-size: 0.875rem; color: var(--gray-600);">Already have an account? <a href="#" id="switchToLogin" class="text-primary" style="font-weight: 500;">Log in</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- My Bookings Modal -->
+  <div id="myBookingsModal" class="modal-overlay">
+    <div class="modal-content glass-card" style="max-width: 600px; max-height: 80vh; display: flex; flex-direction: column;">
+      <div class="modal-header">
+        <h2>My Bookings</h2>
+        <button id="closeMyBookingsBtn" class="close-btn"><i data-lucide="x"></i></button>
+      </div>
+      <div class="modal-body" style="overflow-y: auto; flex: 1;">
+        <div id="myBookingsContainer" style="display: flex; flex-direction: column; gap: 15px;">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
