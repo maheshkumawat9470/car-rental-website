@@ -13,6 +13,10 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+// Ignore favicon requests to prevent 404 logs
+app.use('/favicon.ico', (req, res) => res.status(204).end());
+app.use('/favicon.png', (req, res) => res.status(204).end());
+
 app.use(morgan('dev'));
 
 // Static folder for uploads
