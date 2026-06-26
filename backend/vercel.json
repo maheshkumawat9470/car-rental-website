@@ -12,7 +12,8 @@
           "controllers/**",
           "models/**",
           "middlewares/**",
-          "data.json"
+          "data.json",
+          "public/**"
         ]
       }
     }

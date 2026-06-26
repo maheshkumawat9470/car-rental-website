@@ -13,7 +13,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 2500,
       "images": [
-        "https://cdn-s3.autocarindia.com/legacy/cdni/ExtraImages/20241227074040_5 _26_.jpg?w=728&q=75"
+        "/uploads/c1_creta.png"
       ]
     },
     {
@@ -28,7 +28,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 2200,
       "images": [
-        "https://cdn.cartoq.com/photos/2026_hyundai_verna_facelift_spied_featured_0ffd0a301a.jpg"
+        "/uploads/c2_verna.png"
       ]
     },
     {
@@ -43,7 +43,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 1500,
       "images": [
-        "https://images.moneycontrol.com/static-mcnews/2019/01/Maruti-Suzuki-Baleno-770x433.jpg?impolicy=website&width=350&height=196"
+        "/uploads/c3_baleno.png"
       ]
     },
     {
@@ -58,7 +58,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 1800,
       "images": [
-        "https://drivestm.com/wp-content/uploads/2025/12/Maruti-Brezza-compact-SUV-front-view-on-road.jpg"
+        "/uploads/c4_brezza.png"
       ]
     },
     {
@@ -73,7 +73,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 2000,
       "images": [
-        "https://selectcars.in/wp-content/uploads/2025/01/nexton-bg.webp"
+        "/uploads/c5_nexon.png"
       ]
     },
     {
@@ -88,7 +88,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 3500,
       "images": [
-        "https://ic4.maxabout.us/autos/cars_india/2025/06/Tata_Harrier_EV-20250620112052.jpg"
+        "/uploads/c6_harrier.png"
       ]
     },
     {
@@ -103,7 +103,7 @@
       "seatingCapacity": 7,
       "pricePerDay": 4000,
       "images": [
-        "https://images.firstpost.com/wp-content/uploads/2021/09/mahindra-xuv700-ax7-priced-from-rs-17-59-lakh-all-variant-prices-revealed-deliveries-start-7-october.jpg?im=FitAndFill=(596,336)"
+        "/uploads/c7_xuv700.png"
       ]
     },
     {
@@ -118,7 +118,7 @@
       "seatingCapacity": 4,
       "pricePerDay": 3500,
       "images": [
-        "https://content.carlelo.com/media/news/mahindra-thar-roxx-waiting-period.webp"
+        "/uploads/c8_thar.png"
       ]
     },
     {
@@ -133,7 +133,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 2600,
       "images": [
-        "https://assets.gqindia.com/photos/5d5265d8bef589000876c694/16:9/w_2560,c_limit/Kia-Seltos.jpg"
+        "/uploads/c9_seltos.png"
       ]
     },
     {
@@ -148,7 +148,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 1900,
       "images": [
-        "https://www.carandbike.com/_next/image?url=https://images.carandbike.com/cms/blog-feed/2023/12/39/articles/2023/12/3210789/Kia_Sonet_facelift_e30876a53d.jpg&w=1920&q=90"
+        "/uploads/c10_sonet.png"
       ]
     },
     {
@@ -163,7 +163,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 2400,
       "images": [
-        "https://apollo.olx.in/v1/files/s5h3m4iyfrpn1-IN/image;s=300x0"
+        "/uploads/c11_city.png"
       ]
     },
     {
@@ -178,7 +178,7 @@
       "seatingCapacity": 7,
       "pricePerDay": 4500,
       "images": [
-        "https://apollo.olx.in/v1/files/q33xyv7wqhm31-IN/image;s=300x0"
+        "/uploads/c12_innova.png"
       ]
     },
     {
@@ -193,7 +193,7 @@
       "seatingCapacity": 7,
       "pricePerDay": 6000,
       "images": [
-        "https://www.jazzycars.in/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-18-at-3.33.51-PM.jpeg"
+        "/uploads/c13_fortuner.png"
       ]
     },
     {
@@ -208,7 +208,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 3000,
       "images": [
-        "https://mc.bajajfinserv.in/media/catalog/product/m/g/mghectorplus7sblackstormdsl6mtstarryblack_base.jpeg"
+        "/uploads/c14_hector.png"
       ]
     },
     {
@@ -253,7 +253,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 1700,
       "images": [
-        "https://www.rushlane.com/wp-content/uploads/2021/01/new-renault-kiger-tvc-video.jpg"
+        "/uploads/renault_kiger.png"
       ]
     },
     {
@@ -298,7 +298,7 @@
       "seatingCapacity": 5,
       "pricePerDay": 10000,
       "images": [
-        "https://www.motoringresearch.com/wp-content/uploads/2018/11/P90190497_highRes_40-years-bmw-3-serie.jpg"
+        "/uploads/bmw_3_series.png"
       ]
     },
     {
@@ -478,7 +478,7 @@
       "seatingCapacity": 2,
       "pricePerDay": 850,
       "images": [
-        "https://upload.wikimedia.org/wikipedia/commons/e/ec/Honda_350.jpg"
+        "https://m.atcdn.co.uk/a/media/w600/9f4af03904394a32b437448090a86d22.jpg"
       ]
     },
     {

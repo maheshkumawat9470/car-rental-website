@@ -12,7 +12,8 @@
           "backend/controllers/**",
           "backend/models/**",
           "backend/middlewares/**",
-          "backend/data.json"
+          "backend/data.json",
+          "backend/public/**"
         ]
       }
     }

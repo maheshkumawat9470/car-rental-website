@@ -1,5 +1,5 @@
-const Booking = require('../models/Booking');
-const { readDb } = require('../utils/localDb');
+const crypto = require('crypto');
+const { readDb, writeDb } = require('../utils/localDb');
 
 exports.createBooking = async (req, res) => {
   try {
@@ -8,34 +8,42 @@ exports.createBooking = async (req, res) => {
       pickupDate, returnDate, rentalAmount, securityDeposit, gstAmount, totalAmount 
     } = req.body;
 
-    // Overlap check in MongoDB
-    const existingBooking = await Booking.findOne({
-      vehicle: vehicleId,
-      bookingStatus: 'Active',
-      pickupDate: { $lte: new Date(returnDate) },
-      returnDate: { $gte: new Date(pickupDate) }
-    });
+    const db = await readDb();
+
+    // Overlap check in localDb
+    const existingBooking = db.bookings.find(b => 
+      b.vehicle === vehicleId &&
+      b.bookingStatus === 'Active' &&
+      new Date(b.pickupDate) <= new Date(returnDate) &&
+      new Date(b.returnDate) >= new Date(pickupDate)
+    );
 
     if (existingBooking) {
       return res.status(400).json({ message: 'Vehicle is not available for the selected dates' });
     }
 
-    const booking = new Booking({
+    const newBooking = {
+      _id: crypto.randomUUID(),
       user: req.user._id,
       vehicle: vehicleId,
       name, phone, aadhar, pickupAddress, dropAddress,
-      pickupDate, returnDate, rentalAmount, securityDeposit, gstAmount, totalAmount
-    });
+      pickupDate, returnDate, rentalAmount, securityDeposit, gstAmount, totalAmount,
+      bookingStatus: 'Active',
+      paymentStatus: 'Pending',
+      createdAt: new Date().toISOString()
+    };
 
-    const createdBooking = await booking.save();
-    res.status(201).json(createdBooking);
+    db.bookings.push(newBooking);
+    await writeDb(db);
+
+    res.status(201).json(newBooking);
   } catch (error) { res.status(500).json({ message: error.message }); }
 };
 
 exports.getMyBookings = async (req, res) => {
   try {
-    const myBookings = await Booking.find({ user: req.user._id }).lean();
-    const db = await readDb(); // Fallback to populate localDb vehicles
+    const db = await readDb();
+    const myBookings = db.bookings.filter(b => b.user === req.user._id);
 
     const populated = myBookings.map(b => ({
       ...b,
@@ -47,8 +55,8 @@ exports.getMyBookings = async (req, res) => {
 
 exports.getBookings = async (req, res) => {
   try {
-    const bookings = await Booking.find({}).lean();
-    const db = await readDb(); // Fallback to populate localDb users and vehicles
+    const db = await readDb();
+    const bookings = db.bookings;
 
     const populated = bookings.map(b => ({
       ...b,
