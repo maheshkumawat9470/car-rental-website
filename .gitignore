@@ -3,3 +3,5 @@ node_modules/
 mongo-data/
 *.log
 .DS_Store
+
+.vercel
